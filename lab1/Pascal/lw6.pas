@@ -9,6 +9,7 @@ BEGIN
   IF Pos('name=', QueryString) > 0
   THEN
     BEGIN
+      QueryString := Copy(QueryString, Pos('name=', QueryString), Length(QueryString))
       Name := Copy(QueryString, 6, Length(QueryString) - 5);
       Response := Response + 'dear, ' + Name + '!'
     END
