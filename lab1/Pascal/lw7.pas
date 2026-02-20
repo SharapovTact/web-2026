@@ -17,8 +17,7 @@ BEGIN {GetQueryStringParameter}
       IF Pos('&', QueryString) > PosKey
       THEN
         BEGIN
-          QueryString := Copy(QueryString, 1, Pos('&', QueryString) - 1);
-          PosKey := Pos(Key, QueryString)
+          QueryString := Copy(QueryString, 1, Pos('&', QueryString) - 1)
         END;
       Parametr := Copy(QueryString, PosKey + Length(Key) + 1, Length(QueryString))
     END
