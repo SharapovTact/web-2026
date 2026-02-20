@@ -1,14 +1,17 @@
 PROGRAM SarahRevere(INPUT, OUTPUT);
 USES
   GPC;
+VAR
+  QueryString: STRING;
 BEGIN
   WRITELN('Content-type: text/html');
   WRITELN;
-  IF (GetEnv('QUERY_STRING') = 'lanterns=1')
+  QueryString := GetEnv('QUERY_STRING');
+  IF (QueryString = 'lanterns=1')
   THEN
     WRITELN('The British are coming from land!')
   ELSE
-    IF (GetEnv('QUERY_STRING') = 'lanterns=2')
+    IF (QueryString = 'lanterns=2')
     THEN
       WRITELN('The British are coming from sea!')
     ELSE
