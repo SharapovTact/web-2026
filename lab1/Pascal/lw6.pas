@@ -5,15 +5,14 @@ VAR
   QueryString, Name, Response: STRING;
 BEGIN
   QueryString := GetEnv('QUERY_STRING');
-  Response := 'Hello ';
-  IF Pos('name=', QueryString) > 0
+  IF Pos('name=', QueryString) = 1
   THEN
     BEGIN
       Name := Copy(QueryString, 6, Length(QueryString) - 5);
-      Response := Response + 'dear, ' + Name + '!'
+      Response := 'Hello dear, ' + Name + '!'
     END
   ELSE
-    Response := Response + 'Anonymous!';
+    Response := 'Hello ' + 'Anonymous!';
 
   WRITELN('Content-type: text/html');
   WRITELN;
