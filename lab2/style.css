@@ -1,0 +1,20 @@
+.title{
+    font: 500 43px/1 Poppins, sans-serif;
+    letter-spacing: 0px;
+}
+
+.text{
+    font: 28px/28px Roboto, sans-serif;
+    color: gray;
+    letter-spacing: 0px;
+}
+
+.button{
+    color: white;
+    background-color: brown;
+    font: 500 13px/1 Poppins, sans-serif;
+    padding: 12px 37px 12px 20px;
+    border-radius: 4px;
+    display: block;
+    width: 120px;
+}
