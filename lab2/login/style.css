@@ -1,0 +1,54 @@
+.page p h1 {
+    color: #222222;
+}
+
+.page__title {
+    font: 700 140px/180px "Golos Text", sans-serif;
+    letter-spacing: -1.5px;
+}
+
+.page__authorization {
+    font: 15px/18px "Golos Text", sans-serif;
+    letter-spacing: -0.15px;
+}
+
+.page__authorization p {
+    width: 343px;
+    height: 18px;
+}
+
+.authorization__email-input {
+    width: 343px;
+    height: 44px;
+    border-radius: 10px;
+}
+
+.authorization__email-input-tip {
+    font: 400 13px/16px  "Golos Text", sans-serif;
+    letter-spacing: -0.08px;
+    color: #808080;
+}
+
+.authorization__password-input {
+    width: 343px;
+    height: 44px;
+    border-radius: 10px;
+}
+
+.password-input__eye-off-image {
+    width: 24px; 
+    height: 24px;
+    display: block;
+}
+
+.authorization__continue-button {
+    display: block;
+    font: 500 16px/1 "Golos Text", sans-serif;
+    text-align: center;
+    background-color: #222222;
+    color: #FFFFFF;
+    width: 343px;
+    line-height: 48px; 
+    border-radius: 10px;
+    text-decoration: none;
+}
