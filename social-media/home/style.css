@@ -1,0 +1,68 @@
+.text {
+    color: #222222;
+}
+
+.side-bar__image {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.author__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+}
+
+.author__name {
+    width: 100px;
+    height: 18px;
+    font: 500 14px/18px "Golos Text", sans-serif;
+    letter-spacing: -0.15px;
+}
+
+.images__guy-stay-on-crossroad {
+    width: 474px;
+    height: 474px;
+}
+
+.images__indicator {
+    width: 44px;
+    height: 24px;
+    border-radius: 20px;
+    padding: 10px 0;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.reactions__button {
+    width: 68px;
+    height: 30px;
+    border-radius: 8px;
+    padding: 6px 12px;
+    background-color: #222222;
+    color: #FFFFFF;
+}
+
+.content__description-short {
+    width: 474px;
+    height: 37px;
+    font: 15px/18px "Golos Text", sans-serif;
+    letter-spacing: -0.15px;
+}
+
+.content__show-more {
+    width: 28px;
+    height: 18px;
+    font: 15px/18px "Golos Text", sans-serif;
+    color: #808080;
+    cursor: pointer;
+}
+
+.content__time-ago {
+    width: 100px;
+    height: 18px;
+    font: 14px/18px "Golos Text", sans-serif;
+    letter-spacing: -0.15px;
+    color: #22222280;
+}

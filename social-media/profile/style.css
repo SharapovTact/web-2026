@@ -1,0 +1,47 @@
+.text {
+    color: #222222;
+}
+
+.side-bar__image {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.head__avatar {
+    width: 123px;
+    height: 123px;
+    border-radius: 6px;
+}
+
+.head__name {
+    font: 500 32px/32px "Golos Text", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    width: 361px;
+    height: 32px;
+}
+
+.head__description {
+    font: 15px/18px "Golos Text", sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    width: 361px;
+    height: 36px;
+}
+
+.head__count-of-posts {
+    width: 101px;
+    height: 30px;
+}
+
+.profile__gallery {
+    width: 1000px;  
+    height: 1900px;
+}
+
+.gallery__photo {
+    width: 322px;
+    height: 322px;
+    border-radius: 2px;
+}

@@ -3,7 +3,7 @@ USES
   GPC;
 FUNCTION GetQueryStringParameter(Key: STRING): STRING;
 VAR
-  QueryString, Parametr: STRING;
+  QueryString, Parameter: STRING;
   PosKey: INTEGER;
 BEGIN {GetQueryStringParameter}
   QueryString := '&' + GetEnv('QUERY_STRING') + '&';
@@ -14,16 +14,17 @@ BEGIN {GetQueryStringParameter}
   THEN
     BEGIN
       QueryString := Copy(QueryString, PosKey + 1, Length(QueryString));
+      Key := Copy(Key, 2, Length(Key));
       PosKey := Pos(Key, QueryString);
       IF Pos('&', QueryString) > PosKey
       THEN
         QueryString := Copy(QueryString, 1, Pos('&', QueryString) - 1);
-      Parametr := Copy(QueryString, PosKey + Length(Key) + 2, Length(QueryString))
+      Parameter := Copy(QueryString, PosKey + Length(Key) + 2, Length(QueryString))
     END
   ELSE
-    Parametr := 'None';
+    Parameter := 'None';
   
-  GetQueryStringParameter := Parametr
+  GetQueryStringParameter := Parameter
 END; {GetQueryStringParameter}
 
 BEGIN {WorkWithQueryString}
