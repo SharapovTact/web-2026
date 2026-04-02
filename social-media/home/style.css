@@ -19,6 +19,8 @@
     height: 18px;
     font: 500 14px/18px "Golos Text", sans-serif;
     letter-spacing: -0.15px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .images__guy-stay-on-crossroad {

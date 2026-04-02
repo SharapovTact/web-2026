@@ -11,3 +11,8 @@ stylesheet - мы говорим браузеру что мы подгружае
 Можно заменить этим:
     font: 500 43px/1 Poppins, sans-serif;
 ! Изначально font-weight = 400
+
+------------------------------
+API:
+$json = file_get_contents('php://input'); - Чтение JSON из файла запроса
+$data = json_decode($json, true); - Декодируем в массив, true означает что мы в массив кладем

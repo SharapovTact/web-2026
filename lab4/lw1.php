@@ -1,5 +1,5 @@
 <?php
-function isNumber($number){
+function isNumber($number): bool {
     for ($i = 0; $i < strlen($number); $i++){
         if ($number[$i] < '0' || $number[$i] > '9'){
             return false;
@@ -7,6 +7,7 @@ function isNumber($number){
     }
     return true;
 }
+
 if (isset($_POST["year"])){
     $year = $_POST["year"];
 }

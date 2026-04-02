@@ -15,88 +15,40 @@ function getZodiacSign($bornDate){
     $zodiacSign = null;
     switch ($month) {
         case 1:
-            if ($day >= 20) {
-                $zodiacSign = "Водолей";
-            } else {
-                $zodiacSign = "Козерог";
-            }
+            $zodiacSign = $day >= 20 ? "Водолей" : "Козерог";
             break;
         case 2:
-            if ($day >= 19) {
-                $zodiacSign = "Рыбы";
-            } else {
-                $zodiacSign = "Водолей";
-            }
+            $zodiacSign = $day >= 19 ? "Рыбы" : "Водолей";
             break;
         case 3:
-            if ($day >= 21) {
-                $zodiacSign = "Овен";
-            } else {
-                $zodiacSign = "Рыбы";
-            }
+            $zodiacSign = $day >= 21 ? "Овен" : "Рыбы";
             break;
         case 4:
-            if ($day >= 20) {
-                $zodiacSign = "Телец";
-            } else {
-                $zodiacSign = "Овен";
-            }
+            $zodiacSign = $day >= 20 ? "Телец" : "Овен";
             break;
         case 5:
-            if ($day >= 21) {
-                $zodiacSign = "Близнецы";
-            } else {
-                $zodiacSign = "Телец";
-            }
+            $zodiacSign = $day >= 21 ? "Близнецы" : "Телец";
             break;
         case 6:
-            if ($day >= 21) {
-                $zodiacSign = "Рак";
-            } else {
-                $zodiacSign = "Близнецы";
-            }
+            $zodiacSign = $day >= 21 ? "Рак" : "Близнецы";
             break;
         case 7:
-            if ($day >= 23) {
-                $zodiacSign = "Лев";
-            } else {
-                $zodiacSign = "Рак";
-            }
+            $zodiacSign = $day >= 23 ? "Лев" : "Рак";
             break;
         case 8:
-            if ($day >= 23) {
-                $zodiacSign = "Дева";
-            } else {
-                $zodiacSign = "Лев";
-            }
+            $zodiacSign = $day >= 23 ? "Дева" : "Лев";
             break;
         case 9:
-            if ($day >= 23) {
-                $zodiacSign = "Весы";
-            } else {
-                $zodiacSign = "Дева";
-            }
+            $zodiacSign = $day >= 23 ? "Весы" : "Дева";
             break;
         case 10:
-            if ($day >= 23) {
-                $zodiacSign = "Скорпион";
-            } else {
-                $zodiacSign = "Весы";
-            }
+            $zodiacSign = $day >= 23 ? "Скорпион" : "Весы";
             break;
         case 11:
-            if ($day >= 22) {
-                $zodiacSign = "Стрелец";
-            } else {
-                $zodiacSign = "Скорпион";
-            }
+            $zodiacSign = $day >= 22 ? "Стрелец" : "Скорпион";
             break;
         case 12:
-            if ($day >= 22) {
-                $zodiacSign = "Козерог";
-            } else {
-                $zodiacSign = "Стрелец";
-            }
+            $zodiacSign = $day >= 22 ? "Козерог" : "Стрелец";
             break;
     }
     return $zodiacSign;
@@ -110,7 +62,7 @@ function isNumber($number){
     return true;
 }
 function isCorrectFormat($date){
-    if (strlen($date) == 10 && $date[2] == '.' && $date[5] == '.'
+    if (strlen($date) == 10 && !isNumber($date[2]) && !isNumber($date[5])
         && isNumber(substr($date, 0, 2))
         && isNumber(substr($date, 3, 2))
         && isNumber(substr($date, 6, 4))){
@@ -118,16 +70,34 @@ function isCorrectFormat($date){
     }
     return false;
 }
-function isCorrectDateValue($date){
+function isCorrectDateValue($date): bool{
     $day = getDay($date);
     $month = getMonth($date);
     $year = getYear($date);
-    if ($day > 0 && $day <= 31
-    && $month > 0 && $month <= 12
-    && $year > 0){
-        return true;
+    if ($day <= 0 || $month <= 0 || $month > 12 || $year <= 0) {
+        return false;
     }
-    return false;
+    switch ($month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            return $day <= 31;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return $day <= 30;
+        case 2:
+            $isLeapYear = ($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0);
+            $maxDays = $isLeapYear ? 29 : 28;
+            return $day <= $maxDays;
+        default:
+            return false;
+    }
 }
 function isCorrectDateInput($date){
     if (isCorrectFormat($date) && isCorrectDateValue($date)){

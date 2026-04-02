@@ -1,8 +1,9 @@
 <?php
-$posts = [
+$posts = [ //TODO Сделать ссылку с хома, на пост, чтобы он открывался
         [
-                'id' => 1,
-                'author' => 'Ваня Денисов', //TODO Сделать ссылку на профиль автора, пусть оттуда всё буерут
+                'postId' => 1,
+                'authorId' => '@vanya', //TODO сделать обязательные и необяз. поля, если текст есть, то вставляемjfhelvjfhxkwv
+                'authorName' => 'Ваня Денисов', //TODO Сделать ссылку на профиль автора, пусть оттуда всё берут
                 'authorAvatar' => 'ivan-avatar.png',
                 'description' => 'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: 
                             «Поздно ночью, в уснувшей долине, на самом дне, в городке, занесенном 
@@ -13,16 +14,20 @@ $posts = [
                 'createdAt' => 74296140,
         ],
         [
-                'id' => 2,
-                'author' => 'Лиза Дёмина',
+                'postId' => 2,
+                'authorId' => '@lisa',
+                'authorName' => 'Лиза Дёмина',
                 'authorAvatar' => 'liza-avatar.png',
                 'description' => 'Сегодня я купила красивый цветок, завидуйте, хейтеры XDXD',
                 'images' => [
                         'flower-and-paper.png',
                 ],
-                'createdAt' => 1274296140,
+                'createdAt' => 127429614,
         ],
 ];
+?>
+
+<?php
 function timeAgo($timestamp) {
     $diff = time() - $timestamp;
     if ($diff < 60) return 'только что';

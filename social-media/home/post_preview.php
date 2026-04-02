@@ -1,13 +1,16 @@
+
+
 <div class="feed__post">
     <div class="post__header">
         <div class="header__author">
             <img class="author__avatar" src="<?= '../images/' .  $post['authorAvatar'] ?>" alt="Author avatar" width="32" height="32">
-            <p class="author__name text"><?= $post['author'] ?></p>
+            <a class="author__name text" href="../profile/?user=<?= $post['authorId'] ?>" title="Click to redirect on profile"><?= $post['authorName'] ?></a>
         </div>
         <img class="header__edit-image" src="../images/edit.png" alt="Edit" width="20" height="20">
     </div>
     <div class="post__content">
         <div class="content__images">
+            <a href="pos"></a>
             <img class="images__image" src="<?= '../images/' .  $post['images'][0] ?>" alt="Front image" width="474" height="474">
         </div>
         <img class="images__indicator" src="../images/indicator.png" alt="Indicator" width="44" height="24">

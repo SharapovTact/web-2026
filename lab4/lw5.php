@@ -8,7 +8,7 @@ function factorial($n) {
 }
 if (isset($_POST["num"])){
     $num = $_POST["num"];
-    if ($num >= 0){
+    if ($num >= 0 && $num <= 20){
         echo factorial($num);
     }
     else{
