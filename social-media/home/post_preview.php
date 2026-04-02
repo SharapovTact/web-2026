@@ -1,5 +1,3 @@
-
-
 <div class="feed__post">
     <div class="post__header">
         <div class="header__author">
@@ -10,15 +8,23 @@
     </div>
     <div class="post__content">
         <div class="content__images">
-            <a href="pos"></a>
-            <img class="images__image" src="<?= '../images/' .  $post['images'][0] ?>" alt="Front image" width="474" height="474">
+            <a href="<?= '../home/?postId=' . $post['postId'] ?>">
+                <img class="images__image" src="<?= '../images/' .  $post['images'][0] ?>" alt="Front image" width="474" height="474">
+            </a>
         </div>
         <img class="images__indicator" src="../images/indicator.png" alt="Indicator" width="44" height="24">
         <img class="content__reaction" src="../images/reaction.png" alt="Reaction" width="68" height="30">
-        <p class="content__description-short text">
-            <?= $post['description'] ?>
-        </p>
-        <a class="content__show-more text" title="Click to see more">ещё</a>
+        <?php
+        if (!empty($post['description'])) {
+            echo '<p class="content__description-short text">' . htmlspecialchars($post['description']) . '</p>';
+        }
+        ?>
+
+        <?php
+        if (!empty($post['description'])) {
+            echo '<a class="content__show-more text" title="Click to see more">ещё</a>';
+        }
+        ?>
         <p class="content__time-ago text"><?php
             echo timeAgo($post['createdAt']);
             ?></p>

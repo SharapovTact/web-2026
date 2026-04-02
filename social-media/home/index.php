@@ -1,41 +1,6 @@
 <?php
-$posts = [ //TODO Сделать ссылку с хома, на пост, чтобы он открывался
-        [
-                'postId' => 1,
-                'authorId' => '@vanya', //TODO сделать обязательные и необяз. поля, если текст есть, то вставляемjfhelvjfhxkwv
-                'authorName' => 'Ваня Денисов', //TODO Сделать ссылку на профиль автора, пусть оттуда всё берут
-                'authorAvatar' => 'ivan-avatar.png',
-                'description' => 'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: 
-                            «Поздно ночью, в уснувшей долине, на самом дне, в городке, занесенном 
-                            снегом по ручку двери...',
-                'images' => [
-                        'guy-stay-on-crossroad.jpg',
-                ],
-                'createdAt' => 74296140,
-        ],
-        [
-                'postId' => 2,
-                'authorId' => '@lisa',
-                'authorName' => 'Лиза Дёмина',
-                'authorAvatar' => 'liza-avatar.png',
-                'description' => 'Сегодня я купила красивый цветок, завидуйте, хейтеры XDXD',
-                'images' => [
-                        'flower-and-paper.png',
-                ],
-                'createdAt' => 127429614,
-        ],
-];
-?>
-
-<?php
-function timeAgo($timestamp) {
-    $diff = time() - $timestamp;
-    if ($diff < 60) return 'только что';
-    if ($diff < 3600) return round($diff / 60) . ' мин назад';
-    if ($diff < 86400) return round($diff / 3600) . ' ч назад';
-    if ($diff < 2592000) return round($diff / 86400) . ' дн назад';
-    return date('d.m.Y', $timestamp);
-}
+include 'data.php';
+$postId = isset($_GET['postId']) ? $_GET['postId'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -54,8 +19,24 @@ function timeAgo($timestamp) {
             </nav>
             <div class="page__feed">
                 <?php
-                foreach ($posts as $post) {
+                if ($postId != '') {
+                    $post = null;
+                    foreach ($posts as $p) {
+                        if ($p['postId'] == $postId) {
+                            $post = $p;
+                            break;
+                        }
+                    }
+                    if ($post == null) {
+                        header("Location: ../home"); //TODO сверстать страницу ошибки
+                        exit;
+                    }
                     include 'post_preview.php';
+                }
+                else{
+                    foreach ($posts as $post) {
+                        include 'post_preview.php';
+                    }
                 }
                 ?>
             </div>
