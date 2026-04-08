@@ -4,7 +4,9 @@
             <img class="author__avatar" src="<?= '../images/' .  $post['authorAvatar'] ?>" alt="Author avatar" width="32" height="32">
             <a class="author__name text" href="../profile/?user=<?= $post['authorId'] ?>" title="Click to redirect on profile"><?= $post['authorName'] ?></a>
         </div>
-        <img class="header__edit-image" src="../images/edit.png" alt="Edit" width="20" height="20">
+        <div class="header__indicator">
+            <img class="indicator__edit-image" src="../images/edit.png" alt="Edit" width="20" height="20">
+        </div>
     </div>
     <div class="post__content">
         <?php if (isset($post['images'])){

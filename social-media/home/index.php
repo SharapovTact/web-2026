@@ -28,7 +28,7 @@ $postId = isset($_GET['postId']) ? $_GET['postId'] : '';
                         }
                     }
                     if ($post == null) {
-                        header("Location: ../home"); //TODO сверстать страницу ошибки
+                        header("Location: ../home");
                         exit;
                     }
                     include 'post_preview.php';
