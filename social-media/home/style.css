@@ -61,9 +61,34 @@
     text-decoration: none;
 }
 
-.images__guy-stay-on-crossroad {
+.post__content {
+    position: relative;
+}
+
+.images__image {
     width: 474px;
     height: 474px;
+}
+
+.content__indicator-image {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    z-index: 1;
+}
+
+.content__slider-right-image {
+    position: absolute;
+    top: 221px;
+    right: 16px;
+    z-index: 1;
+}
+
+.content__slider-left-image {
+    position: absolute;
+    top: 221px;
+    left: 16px;
+    z-index: 1;
 }
 
 .header__indicator {

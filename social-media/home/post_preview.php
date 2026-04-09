@@ -9,6 +9,11 @@
         </div>
     </div>
     <div class="post__content">
+        <?php if (sizeof($post['images']) > 1){ ?>
+            <img class="content__indicator-image" src="../images/indicator.png" alt="Indicator" width="44" height="25">
+            <img class="content__slider-right-image" src="../images/slider-button-right-on.png" alt="Slider right" width="20" height="20">
+            <img class="content__slider-left-image" src="../images/slider-button-left-off.png" alt="Slider left" width="20" height="20">
+        <?php } ?>
         <?php if (isset($post['images'])){
             foreach ($post['images'] as $image){?>
             <div class="content__images">
@@ -16,8 +21,6 @@
                     <img class="images__image" src="<?= '../images/' .  $image ?>" alt="Front image" width="474" height="474">
                 </a>
             </div>
-            <?php } if (sizeof($post['images']) > 1){ ?>
-                <img class="images__indicator" src="../images/indicator.png" alt="Indicator" width="44" height="24">
             <?php } ?>
         <?php } ?>
 

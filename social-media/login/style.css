@@ -2,19 +2,40 @@ text {
     color: #222222;
 }
 
-.page__main-image {
+.page {
+    display: flex;
+    flex-direction: row;
+    gap: 104px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page__great {
+    position: relative;
+}
+
+.great__image {
     width: 462px;
     height: 501px;
 }
 
-.page__title {
+.great__title {
+    position: absolute;
+    bottom: 337px;
+    right: 142px;
+
     font: 700 140px/180px "Golos Text", sans-serif;
     letter-spacing: -1.5px;
 }
 
 .page__authorization {
+    display: flex;
+    flex-direction: column;
     font: 15px/18px "Golos Text", sans-serif;
     letter-spacing: -0.15px;
+    align-self: center;
+
 }
 
 .email__input {
