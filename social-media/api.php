@@ -37,6 +37,13 @@ function saveImage(string $imageBase64) {
     echo "Файл сохранён";
 }
 
+function connectDatabase(): PDO {
+    $dsn = 'mysql:host=127.0.0.1;dbname=blog';
+    $user = 'root';
+    $password = '';
+    return new PDO($dsn, $user, $password);
+}
+
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method == 'POST') {
     $json = getPostJson();

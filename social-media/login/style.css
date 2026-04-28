@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 text {
     color: #222222;
 }
@@ -22,7 +27,7 @@ text {
 
 .great__title {
     position: absolute;
-    bottom: 337px;
+    bottom: 427px;
     right: 142px;
 
     font: 700 140px/180px "Golos Text", sans-serif;
@@ -35,40 +40,54 @@ text {
     font: 15px/18px "Golos Text", sans-serif;
     letter-spacing: -0.15px;
     align-self: center;
+    width: 343px;
+}
 
+.authorization__email{
+    margin-top: 10px;
 }
 
 .email__input {
-    width: 343px;
+    width: 100%;
     height: 44px;
     border-radius: 10px;
 }
 
 .email__input-tip {
+
     font: 13px/16px "Golos Text", sans-serif;
     letter-spacing: -0.08px;
     color: #808080;
 }
 
+.authorization__password{
+    position: relative;
+    margin-top: 10px;
+}
+
 .password__input {
-    width: 343px;
+    width: 100%;
     height: 44px;
     border-radius: 10px;
 }
 
-.password__eye-off-image {
+.password__eye-off-image{
     width: 24px;
     height: 24px;
-    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
 }
 
 .authorization__continue-button {
     display: block;
+    margin-top: 10px;
     font: 500 16px/1 "Golos Text", sans-serif;
     text-align: center;
     background-color: #222222;
     color: #FFFFFF;
-    width: 343px;
+    width: 100%;
     line-height: 48px;
     border-radius: 10px;
     text-decoration: none;

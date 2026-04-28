@@ -5,16 +5,16 @@ $profiles = [
     '@vanya' => [
         'userId' => '@vanya',
         'name' => 'Ваня Денисов',
-        'avatar' => 'ivan-avatar.png',
+        'avatar' => '1.png',
         'status' => 'Привет! Я системный аналитик в ACME :) 
                         Тут моя жизнь только для самых классных!',
         'images' => [
-            'guy-stay-on-crossroad.jpg',
+            '3.jpg',
             'cake.png',
             'big-build.png',
             'a-lot-of-people.png',
             'coffee.png',
-            'book.png',
+            '4.png',
             'suny-streed.jpg',
             'two-man.jpg',
             'goods-in-shop.jpg',
