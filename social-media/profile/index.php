@@ -9,12 +9,12 @@ $profiles = [
         'status' => 'Привет! Я системный аналитик в ACME :) 
                         Тут моя жизнь только для самых классных!',
         'images' => [
-            '3.jpg',
+            '1.jpg',
             'cake.png',
             'big-build.png',
             'a-lot-of-people.png',
             'coffee.png',
-            '4.png',
+            '2.png',
             'suny-streed.jpg',
             'two-man.jpg',
             'goods-in-shop.jpg',

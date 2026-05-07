@@ -9,7 +9,7 @@ function connectDatabase(): PDO {
 function findPostInDatabase(PDO $connection, int $id): ?array {
     $query = <<<SQL
        SELECT
-           post_id, user_id, description, UNIX_TIMESTAMP(created_time)
+           post_id, user_id, description, likes, UNIX_TIMESTAMP(created_time)
        FROM posts
        WHERE post_id = $id
        SQL;
@@ -17,10 +17,10 @@ function findPostInDatabase(PDO $connection, int $id): ?array {
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row ?: null;
 }
-function findImageInDatabase(PDO $connection, int $id): ?array {//TODO возвращается массив только с 1-й фоткой
+function findImageInDatabase(PDO $connection, int $id): ?array {
     $query = <<<SQL
        SELECT
-           image_id, extension
+           image_id, extension, display_order
        FROM images
        WHERE post_id = $id
        SQL;
@@ -31,7 +31,7 @@ function findImageInDatabase(PDO $connection, int $id): ?array {//TODO возв�
 function findUserInDatabase(PDO $connection, int $id): ?array {
     $query = <<<SQL
        SELECT
-           name, user_id
+           name, user_id, avatar_url
        FROM users
        WHERE user_id = $id
        SQL;
@@ -44,7 +44,7 @@ function findUserAvatar(PDO $connection, int $id): ?array {
        SELECT
            image_id, extension
        FROM images
-       WHERE user_id = $id
+       WHERE image_id = $id
        SQL;
     $statement = $connection->query($query);
     $row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -54,12 +54,12 @@ function findPost(int $id): ?array {
     $postId = $id;
     $connection = connectDatabase();
     $postInfo = findPostInDatabase($connection, $postId);
+    $userInfo = findUserInDatabase($connection, $postId);
     if ($postInfo) {
         $mas = [
             'postInfo' => $postInfo,
             'images'   => findImageInDatabase($connection, $postId),
-            'userInfo' => findUserInDatabase($connection, $postId),
-            'userAvatar' => findUserAvatar($connection, $postId),
+            'userInfo' => $userInfo,
         ];
         return $mas;
     }

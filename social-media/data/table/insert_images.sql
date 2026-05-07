@@ -1,6 +1,4 @@
-INSERT INTO images (extension, user_id, post_id) VALUES
-('png', 1, NULL),
-('png', 2, NULL),
-('jpg', NULL, 1),
-('png', NULL, 1),
-('png', NULL, 2);
+INSERT INTO images (extension, post_id, display_order) VALUES
+('jpg', 1, 1),
+('png', 1, 0),
+('png', 2, 0);

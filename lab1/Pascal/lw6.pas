@@ -5,6 +5,8 @@ VAR
   QueryString, Name, Response: STRING;
   SeparatorPos: INTEGER;
 BEGIN {localhost/test-cgi/lw6.cgi?name=Nikita&age=18}
+  WRITELN('Content-type: text/html');
+  WRITELN;
   QueryString := GetEnv('QUERY_STRING');  
   IF ((Pos('name=', QueryString) = 1) AND (Length(QueryString) > 5) AND (QueryString[6] <> '&'))
   THEN
@@ -18,8 +20,5 @@ BEGIN {localhost/test-cgi/lw6.cgi?name=Nikita&age=18}
     END
   ELSE
     Response := 'Hello ' + 'Anonymous!';
-
-  WRITELN('Content-type: text/html');
-  WRITELN;
   WRITELN(Response)
 END.
