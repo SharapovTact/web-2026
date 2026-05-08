@@ -5,33 +5,8 @@ $postCount = 2;
 for ($i = 0; $i < $postCount; $i++) {
     $posts[$i] = findPost($i + 1);
 }
-/*$legacy = [
-    [
-        'postId' => 1,
-        'authorId' => '@vanya',
-        'authorName' => 'Ваня Денисов',
-        'authorAvatar' => '1.png',
-        'description' => 'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: 
-                            «Поздно ночью, в уснувшей долине, на самом дне, в городке, занесенном 
-                            снегом по ручку двери...',
-        'images' => [
-            '1.jpg',
-        ],
-        'createdAt' => 74296140,
-    ],
-    [
-        'postId' => 2,
-        'authorId' => '@lisa',
-        'authorName' => 'Лиза Дёмина',
-        'authorAvatar' => '2.png',
-        'description' => 'Сегодня я купила красивый цветок, завидуйте, хейтеры XDXD',
-        'images' => [
-            '3.png',
-        ],
-        'createdAt' => 127429614,
-    ],
-];*/
-function timeAgo(int $timestamp) {
+
+function timeAgo(int $timestamp) { //TODO Вынести в константы числа
     $diff = time() - $timestamp;
     if ($diff < 60) return 'только что';
     if ($diff < 3600) return round($diff / 60) . ' мин назад';
