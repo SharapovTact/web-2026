@@ -26,7 +26,7 @@ function findImageInDatabase(PDO $connection, int $id): ?array {
        SQL;
     $statement = $connection->query($query);
     $row = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $row ?: null;
+    return $row;
 }
 function findUserInDatabase(PDO $connection, int $id): ?array {
     $query = <<<SQL
@@ -51,17 +51,16 @@ function findUserAvatar(PDO $connection, int $id): ?array {
     return $row ?: null;
 }
 function findPost(int $id): ?array {
-    $postId = $id;
     $connection = connectDatabase();
-    $postInfo = findPostInDatabase($connection, $postId);
-    $userInfo = findUserInDatabase($connection, $postId);
+    $postInfo = findPostInDatabase($connection, $id);
     if ($postInfo) {
-        $mas = [
+        $authorId = $postInfo['user_id'];
+        $userInfo = findUserInDatabase($connection, $authorId);
+        return [
             'postInfo' => $postInfo,
-            'images'   => findImageInDatabase($connection, $postId),
+            'images'   => findImageInDatabase($connection, $id),
             'userInfo' => $userInfo,
         ];
-        return $mas;
     }
     return null;
 }

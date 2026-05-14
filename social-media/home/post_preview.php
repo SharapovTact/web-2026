@@ -25,11 +25,13 @@
                 </a>
             </div>
             <?php } ?>
-        <?php } ?>
+        <?php }
+        if (sizeof($post['images']) > 1){?>
         <button class="content__like-button">
             <img class="like-button__heart-image" src="../images/like.png" alt="Like"></img>
             <span class="like-button__count"><?= $post['postInfo']['likes'] //TODO Ограничить ?></span>
         </button>
+        <?php }?>
         <?php if (!empty($post['postInfo']['description'])) { ?>
             <p class="content__description-short text"> <?= $post['postInfo']['description'] ?> </p>
             <a class="content__show-more text" title="Click to see more">ещё</a>

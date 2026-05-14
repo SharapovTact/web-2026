@@ -1,7 +1,16 @@
 <?php
 include 'sql_post.php';
+
+function getPostsCount(PDO $connection): int {
+    $query = <<<SQL
+        SELECT COUNT(*) FROM posts
+        SQL;
+    $statement = $connection->query($query);
+    return (int)$statement->fetchColumn();
+}
+
 $posts = [];
-$postCount = 2;
+$postCount = getPostsCount(connectDatabase());
 for ($i = 0; $i < $postCount; $i++) {
     $posts[$i] = findPost($i + 1);
 }
