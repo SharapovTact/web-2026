@@ -9,11 +9,17 @@
         </div>
     </div>
     <div class="post__content">
-        <?php if (sizeof($post['images']) > 1){ ?>
-            <img class="content__indicator-image" src="../images/indicator.png" alt="Indicator">
+        <?php
+        $imagesCount = count($post['images']);
+        $currentImageOrder = 1;
+        if ($imagesCount > 1): ?>
+            <div class="content__indicator text">
+                <span class="indicator__current-photo-index"><?= $currentImageOrder ?>/<?= $imagesCount ?></span>
+            </div>
+
             <img class="content__slider-right-image" src="../images/slider-button-right-on.png" alt="Slider right">
             <img class="content__slider-left-image" src="../images/slider-button-left-off.png" alt="Slider left">
-        <?php } ?>
+        <?php endif; ?>
         <?php if (isset($post['images'])){
             usort($post['images'], function($a, $b) {
                 return $a['display_order'] <=> $b['display_order'];
@@ -26,7 +32,7 @@
             </div>
             <?php } ?>
         <?php }
-        if (sizeof($post['images']) > 1){?>
+        if ($imagesCount > 1){?>
         <button class="content__like-button">
             <img class="like-button__heart-image" src="../images/like.png" alt="Like"></img>
             <span class="like-button__count"><?= $post['postInfo']['likes'] //TODO Ограничить ?></span>

@@ -74,7 +74,7 @@ function createEnterImage(PDO $connection, int $postId, int $order): int {
         VALUES (?, 'none', ?)
         SQL;
     $statement = $connection->prepare($query);
-    $statement->execute([$postId, $order]);
+    $statement->execute([$postId, $order + 1]);
     return (int)$connection->lastInsertId();
 }
 
