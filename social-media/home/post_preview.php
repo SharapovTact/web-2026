@@ -21,7 +21,7 @@
             foreach ($post['images'] as $image){?>
             <div class="content__images">
                 <a href="<?php if ($image['display_order'])'../home/?postId=' . $post['postInfo']['post_id'] ?>">
-                    <img class="images__image" src="<?= '../images/' .  $image['image_id'] . '.' . $image['extension'] ?>" alt="Front image">
+                    <img class="images__image" src="<?= $image['path'] ?>" alt="Front image">
                 </a>
             </div>
             <?php } ?>

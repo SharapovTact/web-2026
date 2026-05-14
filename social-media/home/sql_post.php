@@ -20,7 +20,7 @@ function findPostInDatabase(PDO $connection, int $id): ?array {
 function findImageInDatabase(PDO $connection, int $id): ?array {
     $query = <<<SQL
        SELECT
-           image_id, extension, display_order
+           image_id, path, display_order
        FROM images
        WHERE post_id = $id
        SQL;
