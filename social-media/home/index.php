@@ -1,6 +1,6 @@
 <?php
 include 'data.php';
-$postId = isset($_GET['postId']) ? $_GET['postId'] : ''; //TODO Сделать считывание отдельного поста из БД
+$postId = isset($_GET['postId']) ? $_GET['postId'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
