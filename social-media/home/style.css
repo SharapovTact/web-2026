@@ -43,7 +43,6 @@
     justify-content: space-between;
     align-items: center;
     width: 474px;
-    padding-bottom: 16px;
 }
 
 .header__author {
@@ -78,6 +77,7 @@
 .images__image {
     width: 474px;
     height: 474px;
+    padding-top: 16px;
 }
 
 .content__indicator {
@@ -156,7 +156,7 @@
     border-radius: 20px;
 }
 
-.content__like-button {
+.like__button {
     width: 68px;
     height: 30px;
     border-radius: 8px;
@@ -169,17 +169,20 @@
     gap: 3px;
 }
 
-.like-button__heart-image {
+.button__heart-image {
     width: 16px;
     height: 16px;
+}
 
+.content__like {
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .content__description-short {
     width: 474px;
     font: 15px/18px "Golos Text", sans-serif;
     letter-spacing: -0.15px;
-    margin-bottom: 0;
 }
 
 .content__show-more {
