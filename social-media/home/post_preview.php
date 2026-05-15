@@ -16,27 +16,32 @@
             <div class="content__indicator text">
                 <span class="indicator__current-photo-index"><?= $currentImageOrder ?>/<?= $imagesCount ?></span>
             </div>
+            <button class="content__slider-left">
+                <img class="slider-left__image arrow" src="../images/Arrow-left.png" alt="Slider left">
+            </button>
+            <button class="content__slider-right">
+                <img class="slider-left__image arrow" src="../images/Arrow-right.png" alt="Slider right">
+            </button>
 
-            <img class="content__slider-right-image" src="../images/slider-button-right-on.png" alt="Slider right">
-            <img class="content__slider-left-image" src="../images/slider-button-left-off.png" alt="Slider left">
+            <img class="content__slider-left-image" src="../images/Arrow-left.png" alt="Slider left">
         <?php endif; ?>
-        <?php if (isset($post['images'])){
-            usort($post['images'], function($a, $b) {
-                return $a['display_order'] <=> $b['display_order'];
-            });
-            foreach ($post['images'] as $image){?>
-            <div class="content__images">
-                <a href="<?php if ($image['display_order'])'../home/?postId=' . $post['postInfo']['post_id'] ?>">
-                    <img class="images__image" src="<?= $image['path'] ?>" alt="Front image">
-                </a>
-            </div>
-            <?php } ?>
-        <?php }
-        if ($imagesCount > 1){?>
-        <button class="content__like-button">
-            <img class="like-button__heart-image" src="../images/like.png" alt="Like"></img>
-            <span class="like-button__count"><?= $post['postInfo']['likes'] //TODO Ограничить ?></span>
-        </button>
+        <div class="content__images">
+            <?php if (isset($post['images'])){
+                usort($post['images'], function($a, $b) {
+                    return $a['display_order'] <=> $b['display_order'];
+                });
+                foreach ($post['images'] as $image){?>
+                    <a href="<?php if ($image['display_order'])'../home/?postId=' . $post['postInfo']['post_id'] ?>">
+                        <img class="images__image" src="<?= $image['path'] ?>" alt="Front image">
+                    </a>
+                <?php }
+            }?>
+        </div>
+        <?php if ($imagesCount > 1){?>
+            <button class="content__like-button">
+                <img class="like-button__heart-image" src="../images/like.png" alt="Like"></img>
+                <span class="like-button__count"><?= $post['postInfo']['likes'] ?></span>
+            </button>
         <?php }?>
         <?php if (!empty($post['postInfo']['description'])) { ?>
             <p class="content__description-short text"> <?= $post['postInfo']['description'] ?> </p>

@@ -41,5 +41,6 @@ $postId = isset($_GET['postId']) ? $_GET['postId'] : ''; //TODO Сделать �
                 ?>
             </div>
         </div>
+        <script src="./slider.js"></script>
     </body>
 </html>
