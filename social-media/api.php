@@ -11,6 +11,7 @@ function getPostJson(): string {
     $dataAsJson = file_get_contents("php://input");
     if (!$dataAsJson) {
         echo 'Не удалось считать данные! <br>';
+        http_response_code(400);
         return "";
     }
     return $dataAsJson;
@@ -24,11 +25,13 @@ function saveFile(string $file, string $data): bool {
             echo 'Данные успешно сохранены в файл <br>';
         } else {
             echo 'Произошла ошибка при сохранении данных в файл <br>';
+            http_response_code(500);
             return false;
         }
         fclose($myFile);
     } else {
         echo 'Произошла ошибка при открытии файла <br>';
+        http_response_code(500);
         return false;
     }
     return true;
@@ -37,7 +40,7 @@ function saveFile(string $file, string $data): bool {
 function saveImageWithId(string $imageBase64, int $imageId): string {
     $saveDir = './images/';
     if (!is_dir($saveDir)) mkdir($saveDir, 0777, true);
-
+    //TODO проверить ошибку клиента на формат
     $imageBase64Array = explode(';base64,', $imageBase64);
     $extension = str_replace('data:image/', '', $imageBase64Array[0]);
 
@@ -46,13 +49,15 @@ function saveImageWithId(string $imageBase64, int $imageId): string {
 
     $imageDecoded = base64_decode($imageBase64Array[1]);
     if ($imageDecoded === false) {
+        http_response_code(400);
         die("Ошибка декодирования");
     }
     if (saveFile($filePath, $imageDecoded)){
         echo "Файл сохранён";
         return '.' . $filePath;
     }
-    return "";
+    return ""; //TODO добавить http responce
+    //TODO проштудировать статусы 300 301 302 304 502 504
 }
 
 function savePostToDatabase(PDO $connection, array $postParams): int {
@@ -107,14 +112,15 @@ if ($method == 'POST') {
             if ($finalPath !== "") {
                 updateImagePath($db, $imageId, $finalPath);
             } else {
+                http_response_code(500);
                 throw new Exception("Не удалось сохранить изображение под номером " . ($index + 1));
             }
         }
+        http_response_code(200);
         $db->commit();
-        echo "Пост успешно создан. ID поста: $postId";
     } catch (Exception $exception) {
+        http_response_code(400);
         $db->rollBack();
-        echo "Ошибка: " . $exception->getMessage();
     }
 }
 

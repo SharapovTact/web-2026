@@ -1,5 +1,6 @@
 function countVowels(str) {
     if (typeof str == 'string') {
+        str = str.toLowerCase();
         let vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
         let count = 0;
         for (let i = 0; i < str.length; i++) {
