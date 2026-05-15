@@ -22,8 +22,6 @@
             <button class="content__slider-right">
                 <img class="slider-left__image arrow" src="../images/Arrow-right.png" alt="Slider right">
             </button>
-
-            <img class="content__slider-left-image" src="../images/Arrow-left.png" alt="Slider left">
         <?php endif; ?>
         <div class="content__images">
             <?php if (isset($post['images'])){
@@ -37,11 +35,13 @@
                 <?php }
             }?>
         </div>
-        <?php if ($imagesCount > 1){?>
-            <button class="content__like-button">
-                <img class="like-button__heart-image" src="../images/like.png" alt="Like"></img>
-                <span class="like-button__count"><?= $post['postInfo']['likes'] ?></span>
-            </button>
+        <?php if ($imagesCount > 0){?>
+                <div class="content__like">
+                    <button class="like__button">
+                        <img class="button__heart-image" src="../images/like.png" alt="Like"></img>
+                        <span class="button__count"><?= $post['postInfo']['likes'] ?></span>
+                    </button>
+                </div>
         <?php }?>
         <?php if (!empty($post['postInfo']['description'])) { ?>
             <p class="content__description-short text"> <?= $post['postInfo']['description'] ?> </p>
@@ -50,6 +50,7 @@
         <p class="content__time-ago text">
             <?php
             echo timeAgo($post['postInfo']['UNIX_TIMESTAMP(created_time)']);
-            ?></p>
+            ?>
+        </p>
     </div>
 </div>
