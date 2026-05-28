@@ -1,19 +1,11 @@
-function uniqueElements(Array) {
+function uniqueElements(array) {
     let uniqueObj = {};
-    for (let i = 0; i < Array.length; i++) {
-        let keysArr = Object.keys(uniqueObj);
-        let isFirstEnter = false;
-        for (let j = 0; j < keysArr.length; j++) {
-            if (keysArr[j] === Array[i]) {
-                isFirstEnter = false;
-                break;
-            }
+    for (let i = 0; i < array.length; i++) {
+        if (uniqueObj[array[i]] === undefined){
+            uniqueObj[array[i]] = 1;
         }
-        if (isFirstEnter) {
-            uniqueObj[Array[i]] = 1;
-        }
-        else{
-            uniqueObj[Array[i]] = uniqueObj[Array[i]] + 1; //TODO не работает
+        else {
+            uniqueObj[array[i]] = uniqueObj[array[i]] + 1;
         }
     }
     return uniqueObj;

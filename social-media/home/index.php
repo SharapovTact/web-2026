@@ -11,6 +11,13 @@ $postId = isset($_GET['postId']) ? $_GET['postId'] : '';
         <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="modal-window">
+            <div class="modal-window__background"></div>
+            <div class="modal-window__content">
+                <img class="content__close-btn" src="../images/cross.png" alt="cross">
+                <div class="content__post-placeholder"></div>
+            </div>
+        </div>
         <div class="page">
             <nav class="page__side-bar">
                 <img class="side-bar__home-image side-bar__image" src="../images/home.png" alt="Home" width="40" height="40">
@@ -42,5 +49,6 @@ $postId = isset($_GET['postId']) ? $_GET['postId'] : '';
             </div>
         </div>
         <script src="./slider.js"></script>
+        <script src="./modal_window.js"></script>
     </body>
 </html>

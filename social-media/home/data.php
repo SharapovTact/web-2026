@@ -15,7 +15,7 @@ for ($i = 0; $i < $postCount; $i++) {
     $posts[$i] = findPost($i + 1);
 }
 
-function timeAgo(int $timestamp) { //TODO Вынести в константы числа
+function timeAgo(int $timestamp) {
     $diff = time() - $timestamp;
     if ($diff < 60) return 'только что';
     if ($diff < 3600) return round($diff / 60) . ' мин назад';

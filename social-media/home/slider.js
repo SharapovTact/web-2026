@@ -7,7 +7,12 @@ function update(images, currentIndex, indicator) {
             image.style.display = 'none';
         }
     });
-    indicator.textContent = (currentIndex) + '/' + images.length;
+
+    if (indicator.closest('.modal-window')) {
+        indicator.textContent = currentIndex + ' из ' + images.length;
+    } else {
+        indicator.textContent = currentIndex + '/' + images.length;
+    }
 }
 
 function initSlider(post) {
