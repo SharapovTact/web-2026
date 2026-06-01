@@ -44,8 +44,10 @@
                 </div>
         <?php }?>
         <?php if (!empty($post['postInfo']['description'])) { ?>
-            <p class="content__description-short text"> <?= $post['postInfo']['description'] ?> </p>
-            <a class="content__show-more text" title="Click to see more">ещё</a>
+            <p class="content__description-short text" id="desc-<?= $post['postInfo']['post_id'] ?>">
+                <?= $post['postInfo']['description'] ?>
+            </p>
+            <a href="#" class="content__show-more text" title="Click to see more">ещё</a>
         <?php } ?>
         <p class="content__time-ago text">
             <?php

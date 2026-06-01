@@ -48,6 +48,8 @@ $postId = isset($_GET['postId']) ? $_GET['postId'] : '';
                 ?>
             </div>
         </div>
+
+        <script src="./more.js"></script>
         <script src="./slider.js"></script>
         <script src="./modal_window.js"></script>
     </body>

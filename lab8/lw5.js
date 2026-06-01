@@ -4,5 +4,5 @@ function getNames(){
         { id: 2, sex: "female", name: "Denis" },
         { id: 3, sex: "male", name: "Fem" },
     ];
-    return users.map(user => [user.sex, user.name]);
+    return users.map(user => user.name);
 }

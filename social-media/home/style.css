@@ -9,8 +9,8 @@
 
 .modal-window {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: none;
     background-color: #000000B3;
     z-index: 100;
@@ -227,9 +227,18 @@
     width: 474px;
     font: 15px/18px "Golos Text", sans-serif;
     letter-spacing: -0.15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.content__description-short.is-expanded {
+    -webkit-line-clamp: unset !important;
 }
 
 .content__show-more {
+    display: none;
     width: 28px;
     height: 18px;
     font: 15px/18px "Golos Text", sans-serif;
