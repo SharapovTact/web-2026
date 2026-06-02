@@ -9,6 +9,7 @@ $postId = isset($_GET['postId']) ? $_GET['postId'] : '';
         <meta charset="UTF-8">
         <link rel="stylesheet" href="./style.css">
         <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="modal-window">
