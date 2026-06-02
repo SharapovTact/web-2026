@@ -239,7 +239,6 @@
     font: 15px/18px "Golos Text", sans-serif;
     color: #808080;
     cursor: pointer;
-    padding-top: 16px;
 }
 
 .content__time-ago {
@@ -303,32 +302,58 @@
     }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 393px) {
     .page {
-        width: 393px;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     .page__feed {
-        width: 393px;
+        width: 100%;
         padding-top: 20px;
         align-items: center;
     }
 
+    .images__image{
+        width: 100%;
+        margin: 0;
+    }
+    .post__content {
+        width: 100%;
+        margin: 0;
+    }
+
+    .content__show-more,
+    .content__time-ago,
+    .content__like,
     .post__header,
-    .images__image,
     .content__description-short {
-        width: 393px;
-        margin: 0 auto;
+        width: 90% !important;
+        margin: 0 auto !important;
     }
 
     .page__side-bar {
-        position: fixed;
-        bottom: 16px;
-        width: 361px;
-        height: 53px;
+        width: 80%;
+        gap: 20%;
+        min-width: 256px;
+    }
+
+    .modal-window__content {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content__close-btn {
+        top: 20px;
+        right: 20px;
     }
 }

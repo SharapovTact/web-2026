@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buttons.forEach(btn => {
         const desc = btn.previousElementSibling;
         if (desc.scrollHeight > desc.clientHeight) {
-            btn.style.display = 'inline';
+            btn.style.display = 'block';
         }
     });
 });
