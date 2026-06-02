@@ -90,3 +90,82 @@
     height: 322px;
     border-radius: 2px;
 }
+
+@media screen and (max-width: 1072px) {
+    .page {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 80px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page__profile {
+        grid-column-start: 1;
+        width: 100%;
+    }
+
+    .page__side-bar {
+        position: fixed;
+        bottom: 16px;
+        width: 361px;
+        height: 53px;
+        border: 2px solid #2222220D;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+        background: #fff;
+        border-radius: 30px;
+        gap: 50px;
+
+    }
+
+    .profile__head,
+    .profile__gallery {
+        width: 834px;
+        margin: 0 auto;
+    }
+
+    .gallery__photo {
+        width: 276px;
+        height: 276px;
+    }
+
+    .side-bar__image {
+        padding-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .page {
+        width: 393px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page__profile {
+        width: 393px;
+        padding-top: 20px;
+        align-items: center;
+    }
+
+    .profile__head,
+    .profile__gallery {
+        width: 393px;
+        margin: 0 auto;
+    }
+    .gallery__photo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .page__side-bar {
+        position: fixed;
+        bottom: 16px;
+        width: 361px;
+        height: 53px;
+    }
+}

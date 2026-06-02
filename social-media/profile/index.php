@@ -2,10 +2,10 @@
 $username = isset($_GET['user']) ? $_GET['user'] : '';
 
 $profiles = [
-    '@vanya' => [
-        'userId' => '@vanya',
+    '1' => [
+        'userId' => '1',
         'name' => 'Ваня Денисов',
-        'avatar' => '1.png',
+        'avatar' => 'two-man.jpg',
         'status' => 'Привет! Я системный аналитик в ACME :) 
                         Тут моя жизнь только для самых классных!',
         'images' => [
@@ -37,6 +37,7 @@ if ($profile == null) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="page">
