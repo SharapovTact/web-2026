@@ -10,7 +10,7 @@ text {
 .page {
     display: flex;
     flex-direction: row;
-    gap: 104px;
+    gap: 24px;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -27,9 +27,8 @@ text {
 
 .great__title {
     position: absolute;
-    bottom: 427px;
-    right: 142px;
-
+    top: -107px;
+    left: -97px;
     font: 700 140px/180px "Golos Text", sans-serif;
     letter-spacing: -1.5px;
 }
@@ -54,7 +53,6 @@ text {
 }
 
 .email__input-tip {
-
     font: 13px/16px "Golos Text", sans-serif;
     letter-spacing: -0.08px;
     color: #808080;
@@ -91,4 +89,21 @@ text {
     line-height: 48px;
     border-radius: 10px;
     text-decoration: none;
+}
+
+@media screen and (max-width: 1180px) {
+    .page {
+        flex-direction: column;
+    }
+    .great__image {
+        width: 247px;
+        height: 268px;
+    }
+    .great__title {
+        position: absolute;
+        top: -57px;
+        left: -51px;
+        font: 700 75px/95px "Golos Text", sans-serif;
+        letter-spacing: -1.5px;
+    }
 }
