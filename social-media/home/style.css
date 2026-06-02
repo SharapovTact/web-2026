@@ -331,8 +331,8 @@
     .content__like,
     .post__header,
     .content__description-short {
-        width: 90% !important;
-        margin: 0 auto !important;
+        width: 90%;
+        margin: 0 auto;
     }
 
     .page__side-bar {
